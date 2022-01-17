@@ -10,16 +10,16 @@ import numpy as np
 import time
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--img', required=True, help='path to img')
-parser.add_argument('--alphabet', required=True, help='path to vocab')
-parser.add_argument('--model', required=True, help='path to model')
-parser.add_argument('--imgW', type=int, default=None, help='path to model')
+parser.add_argument('--img', required=True, help='path to img',default='img_test/0.jpg')
+parser.add_argument('--alphabet', required=True, help='path to vocab',default='data/char')
+parser.add_argument('--model', required=True, help='path to model',default='expr/netCRNN_100.pth')
+parser.add_argument('--imgW', type=int, default=640, help='path to model')
 parser.add_argument('--imgH', type=int, default=32, help='path to model')
 
 opt = parser.parse_args()
 
 
-alphabet = open(opt.alphabet).read().rstrip()
+alphabet = open(opt.alphabet,encoding="utf8").read().rstrip()
 nclass = len(alphabet) + 1
 nc = 3
 
